@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ar">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="description" content=" نهنئكم بحلول عيدالأضحى المبارك ">
+
+       
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
+
+        <title>المركز الإعلامي بأكاديمية القصيم</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500&display=swap');
+            
+            body {
+                font-size: 10pt;
+                font-family: 'Noto Kufi Arabic', sans-serif;
+                direction: rtl            }
+
+            .btn, .form-control {
+                font-size: 10pt !important;
+            }
+
+            #content {
+                max-width: 370px;
+            }
+            
+            #loading {
+                position: absolute;
+                width: 100%; height: 100%;
+                top: 0; left: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fff;
+            }
+
+            #btn {
+                background-color: #014296;
+                border: unset !important;
+            }
+            
+            @media (max-width: 420px) {
+                #content {
+                    max-width: 320px;
+                }
+            }
+        </style>
+        <script>
+            if (navigator.vendor != null && navigator.vendor.match(/Apple Computer, Inc./) && navigator.userAgent.match(/iPhone/i) || (navigator.userAgent.match(/iPod/i)))  {
+                if (! isSafari()) {
+                    document.getElementById('chrome').value = 'yes';
+                }
+            }
+            
+            function isSafari() {
+                var ua = window.navigator.userAgent;
+                var iOS = !!ua.match(/iP(ad|od|hone)/i);
+                var hasSafariInUa = !!ua.match(/Safari/i);
+                var noOtherBrowsersInUa = !ua.match(/Chrome|CriOS|OPiOS|mercury|FxiOS|Firefox/i)
+                var result = false;
+                if(iOS) { //detecting Safari in IOS mobile browsers
+                    var webkit = !!ua.match(/WebKit/i);
+                    result = webkit && hasSafariInUa && noOtherBrowsersInUa
+                } else if(window.safari !== undefined){ //detecting Safari in Desktop Browsers
+                    result = true;
+                } else { // detecting Safari in other platforms
+                    result = hasSafariInUa && noOtherBrowsersInUa
+                }
+                return result;
+            }
+            
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    </head>
+    <body>
+        
+        <div class="container">
+            <div id="loading" class="animate__animated animate__fadeOut animate__delay-2s">
+                <img src="./logo.png" class="animate__animated animate__backInDown" height="300">
+            </div>
+            <div id="content" class="text-center mx-auto p-4">
+                <img src="./logo.png" class="rounded mb-3" height="180" />
+                <div class="lead mb-2 fw-bold" style="color: #014296;"> عيد الأضحى</div>
+                <div class="my-2 mb-3">يطيب لنا أن نهنئكم بحلول عيد الأضحى المبارك .</div>    
+                <form onsubmit="generateImage(event);" action="eid.png" method="POST">
+                    <div class="form-group mb-2">
+                        <input type="text" name="str_1" placeholder="الاسم" id="name" class="form-control" required>
+                    </div>
+                       
+                    <div class="form-group mt-3">
+                        <button type="submit" id="btn" class="btn btn-success w-100">طباعة</button>
+                    </div>
+                </form>
+                <div class="card card-body mt-2 d-none">
+                    <img src="./eid.png" class="img-thumbnail" id="user-image" alt="">
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"
+        ></script>
+        <script src="./qassim.js"></script>
+        <script>
+            setTimeout(() => {
+                document.querySelector('#loading').remove();
+            }, 2000);
+        </script>
+    </body>
+</html>
+           
